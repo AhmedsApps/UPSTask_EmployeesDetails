@@ -61,9 +61,14 @@ namespace UPSTask_EmployeesDetails
 
         private void btnPageAfter_Click(object sender, EventArgs e)
         {
-            CurrentPage++;
+            if (CurrentList != null)
+            {
+                if (CurrentPage <= CurrentList.meta.pagination.pages)
+                    CurrentPage++;
 
-            DoSearch(CurrentPage);
+                DoSearch(CurrentPage);
+            }
+
         }
 
         private void btnDeleted_Click(object sender, EventArgs e)
@@ -84,6 +89,21 @@ namespace UPSTask_EmployeesDetails
             }
 
             MessageBox.Show("Done " + (response ? "Successfully" : "Unsuccessfully"));
+            
+            DoSearch(CurrentPage);
+        }
+
+        private void btnPageBefore_Click(object sender, EventArgs e)
+        {
+            if (CurrentList != null)
+            {
+                if (CurrentPage > 1)
+                {
+                    CurrentPage--;
+
+                    DoSearch(CurrentPage);
+                }
+            }
         }
     }
 }

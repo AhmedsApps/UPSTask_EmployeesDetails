@@ -184,6 +184,7 @@
             this.btnPageBefore.TabIndex = 0;
             this.btnPageBefore.Text = "< Page before";
             this.btnPageBefore.UseVisualStyleBackColor = true;
+            this.btnPageBefore.Click += new System.EventHandler(this.btnPageBefore_Click);
             // 
             // btnDeleted
             // 
